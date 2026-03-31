@@ -38,7 +38,10 @@ O script utiliza blocos `try/except OSError\` para lidar com problemas comuns de
 - Adição de carimbo de data/hora (`timestamp`) em cada linha de erro extraída.
 - Melhoria na performance de leitura de arquivos grandes.
 ---
+
+```
 .
 ├── auditoria_log.py
 ├── README.md
-└── servidor.log
+└── test_logs.log
+```
