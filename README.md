@@ -4,9 +4,9 @@ Script de automação desenvolvido para ambientes **DevOps e SysAdmin** focado n
 
 ---
 
-## 🚀 O que há de novo?
-Diferente da versão anterior, o script agora é **flexível** e **robusto**:
-* **Argumentos via CLI:** Não fica mais preso a um único arquivo; você define qual log quer analisar na execução.
+## 🛠️ O que ele faz?
+O script atua como um **Filtro de Triagem**:
+* **Argumentos via CLI:** Não fica mais preso a uma única pasta; você define o caminho do log que deseja analisar na execução.
 * **Tratamento de Erros:** Captura falhas de infraestrutura (arquivo inexistente, falta de permissão) sem "quebrar" o terminal.
 * **Gestão de Recursos:** Uso de contextos (`with`) para garantir que os arquivos sejam fechados corretamente, mesmo em caso de erro.
 
@@ -17,23 +17,28 @@ Diferente da versão anterior, o script agora é **flexível** e **robusto**:
 4.  **Feedback:** Informa ao usuário o total de falhas capturadas na sessão.
 
 ## 💻 Como usar no Terminal
-Agora você precisa passar o nome do arquivo de log que deseja auditar:
+Agora você precisa passar o caminho do arquivo de log que deseja auditar:
 
 ```bash
-python3 auditoria_log.py servidor.log
+python3 auditoria_log.py caminho/da/sua/pasta_de_logs/
 ```
 
 > [!IMPORTANT]
-> Se você esquecer de passar o nome do arquivo, o "Porteiro do Script" (validação de `sys.argv`) impedirá a execução e te avisará.
+> Se você esquecer de passar o caminho do arquivo, o "Porteiro do Script" (validação de `sys.argv`) impedirá a execução e te avisará.
 
 ## 📂 Estrutura de Arquivos
 * `auditoria_log.py`: O motor de automação.
-* `qualquer_arquivo.log`: A fonte de dados bruta (input).
+* `caminho/da/sua/pasta_de_logs/`: O diretório de entrada contendo os arquivos brutos (.log) para análise.
 * `erros.txt`: O relatório acumulado de falhas.
 
 ## 🛡️ Tratamento de Exceções
 O script utiliza blocos `try/except OSError\` para lidar com problemas comuns de sistemas de arquivos, garantindo que o processo seja encerrado de forma limpa com a cláusula `finally\`.
 
+## 🕒 Novidades da Versão
+- Adição de carimbo de data/hora (`timestamp`) em cada linha de erro extraída.
+- Melhoria na performance de leitura de arquivos grandes.
 ---
-
-**Foco:** Automação de infraestrutura, resiliência de código e fluência em CLI.
+.
+├── auditoria_log.py
+├── README.md
+└── servidor.log
